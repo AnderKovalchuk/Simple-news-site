@@ -1,0 +1,5 @@
+{
+    "port" : 3030,
+    "mongoUri" : "mongodb+srv://appconnect:KTEgsF4kcpnpCz2@p-01-wuiwh.azure.mongodb.net/p01?retryWrites=true&w=majority",
+    "jwtSecret" : "site news s"
+}
