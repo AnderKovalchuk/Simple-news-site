@@ -1,0 +1,26 @@
+{
+  "name": "simple-news-site",
+  "version": "1.0.0",
+  "description": "Creating a simple news site on the technology stack MERN (Mongo, Express, React, Node)",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnderKovalchuk/Simple-news-site.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnderKovalchuk/Simple-news-site/issues"
+  },
+  "homepage": "https://github.com/AnderKovalchuk/Simple-news-site#readme",
+  "dependencies": {
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.13",
+    "nodemon": "^2.0.3",
+    "pug": "^2.0.4"
+  }
+}
