@@ -1,0 +1,8 @@
+mixin card(title, text, id )
+    .card
+        .card-image
+            img(src="https://materializecss.com/images/sample-1.jpg")
+            h2.card-title= title
+        .card-content !{ text }
+        .card-action
+            a(href="/news/" + id) This is a link

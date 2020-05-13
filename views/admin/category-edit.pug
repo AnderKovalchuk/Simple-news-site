@@ -1,0 +1,38 @@
+extends ../layouts/main
+
+block variables
+    - var title = 'Добавить новость';
+    if(category)    
+        - var link = "/admin/category/save?id=" + category._id
+    else
+        - var link = "/admin/category/save"
+
+
+block main-content
+    h2 Категории
+    form.col.s12(action!= link  method="post")
+        .row
+            .input-field.col.s6
+                input#title(
+                    name="title"
+                    type="text"
+                    placeholder="Заголовок"
+                    value= category ? category.title : "")
+            .input-field.col.s6
+                input#sign(
+                    name="sign" 
+                    type="text"
+                    placeholder="Ссылка"
+                    value= category ? category.sign : "") 
+            .input-field.col.s12
+                if(category)
+                    textarea#textarea1.materialize-textarea(
+                        name="text" 
+                        placeholder="Текст")= category.text
+                else
+                    textarea#textarea1.materialize-textarea(
+                        name="text" 
+                        placeholder="Текст")
+        input.waves-effect.waves-light.btn(
+            type="submit" 
+            value="Сохранить")

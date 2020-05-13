@@ -1,0 +1,12 @@
+extends layouts/main
+
+include components/card
+
+block variables
+    - var title = 'Главная страница';
+    - var pageClass = 'home-page';
+    - var mainContentClass = 'home-page__main';
+
+block main-content
+    h2= news.title
+    div!= news.text

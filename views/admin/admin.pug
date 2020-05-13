@@ -1,0 +1,20 @@
+extends ../layouts/main
+
+block variables
+    - var title = 'Список категорий';
+
+block main-content
+    h3 Управление
+    
+    a.waves-effect.waves-light.btn(
+        href="/admin/news"
+        style="margin: 2em"
+        ) Управление статьями
+
+    a.waves-effect.waves-light.btn(
+        href="/admin/category"
+        style="margin: 2em"
+        ) Управление категориями
+    a.waves-effect.waves-light.btn(
+        href="/"
+        style="margin: 2em") Управление пользователями

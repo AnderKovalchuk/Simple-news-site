@@ -1,0 +1,28 @@
+extends ../layouts/main
+
+block variables
+    - var title = 'Список категорий';
+
+block main-content
+    h2 Список категорий
+
+    table.striped
+        thead
+            tr
+                th Заголовок
+                th Ссылка
+                th(width="50%") Текст
+        tbody
+            each category in categoryList
+                tr
+                    td= category.title
+                    td= category.sign
+                    td= category.text
+                    td
+                        a(href="/admin/category/edit?id=" + category._id ) Edit 
+                        span | 
+                        a(href="/admin/category/delete?id=" + category._id ) Delete
+
+    br
+    br
+    a.waves-effect.waves-light.btn(href="/admin/category/add") Добавить категорию

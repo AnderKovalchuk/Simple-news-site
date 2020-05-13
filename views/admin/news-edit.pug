@@ -1,0 +1,47 @@
+extends ../layouts/main
+
+block variables
+    - var title = 'Добавить новость';
+    if(news)    
+        - var link = "/admin/news/save?id=" + news._id
+    else
+        - var link = "/admin/news/save"
+
+block main-content
+    h2 Добавить новую статью!
+    form.col.s12(action!= link, method="post")
+        .row
+            .input-field.col.s6
+                input#title(
+                    name="title"
+                    type="text"
+                    placeholder="Заголовок"
+                    value= news ? news.title : "")
+            .input-field.col.s6
+                input#sign(
+                    name="sign"
+                    type="text"
+                    placeholder="Ссылка"
+                    value= news ? news.sign : "") 
+
+            .input-field.col.s12
+                if(news)
+                    textarea#textarea1.materialize-textarea(
+                        name="shortText" 
+                        placeholder="Краткий текст")= news.shortText
+                else
+                    textarea#textarea1.materialize-textarea(
+                        name="shortText" 
+                        placeholder="Краткий текст")
+                        
+            .input-field.col.s12
+                if(news)
+                    textarea#textarea1.materialize-textarea(
+                        name="text" 
+                        placeholder="Текст статьи")= news.text
+                else
+                    textarea#textarea1.materialize-textarea(
+                        name="text" 
+                        placeholder="Текст статьи")
+
+        input.waves-effect.waves-light.btn(type="submit", value="Сохранить")

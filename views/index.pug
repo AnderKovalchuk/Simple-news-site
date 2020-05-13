@@ -1,13 +1,23 @@
 extends layouts/main
 
+include components/card
+
 block variables
     - var title = 'Главная страница';
     - var pageClass = 'home-page';
     - var mainContentClass = 'home-page__main';
 
+block before-main-content
+    #index-banner.parallax-container(style="background-image: url('/images/header-img.png'); background-size: cover;")
+        .section.no-pad-bot
+            .container
+                h1.center.teal-text.white-text(style="margin-top: 3em;") Новости
+
+
 block main-content
-    h2 Hi Pug !
+    h2 All news !
     pre #{url}
-    each news in newsList
-        h2= news.title
-        p !{ news.text }
+    .row
+        each news in newsList
+            .col.s4
+                +card(news.title, news.shortText, news._id)

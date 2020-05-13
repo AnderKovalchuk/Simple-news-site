@@ -1,0 +1,47 @@
+extends ../layouts/main
+
+block variables
+    - var title = 'Список новостей';
+
+block main-content
+    h2 Список новостей
+    
+    .row
+        .input-field.col.s9
+            select
+                option(value="" disabled selected) Выберете из списка
+                each category in categorys
+                    option(value= category._id)= category.title
+            label Категория
+        .input-field.col.s3
+            button.waves-effect.waves-light.btn-large(type="submit" name="action") Открыть
+    
+    table.striped
+        thead
+            tr
+                th Заголовок
+                th Ссылка
+                th(width="50%") Текст
+                th(width="150") 
+        tbody
+            each news in newsList
+                tr
+                    td= news.title
+                    td= news.sign
+                    td!= news.shortText
+                    td
+                        a(href="/admin/news/edit?id=" + news._id ) Edit 
+                        span | 
+                        a(href="/admin/news/delete?id=" + news._id ) Delete
+    br
+    a.waves-effect.waves-light.btn(href="/admin/news/add") Добавить статью
+    br
+    br
+    br
+
+block script
+    script.
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });

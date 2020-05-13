@@ -10,9 +10,6 @@ const schema = new Schema({
         required: true,
         unique: true,
     },
-    shortText: {
-        type: String,
-    },
     text: {
         type: String,
         required: true,
@@ -23,4 +20,4 @@ const schema = new Schema({
     }
 })
 
-module.exports = model('News', schema)
+module.exports = model('Category', schema)
